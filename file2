@@ -1,0 +1,21 @@
+sudo yum update -y
+sudo yum install docker -y
+sudo systemctl start docker 
+sudo systemctl enable docker 
+sudo systemctl status docker
+sudo reboot 
+sudo usermod -aG docker ec2-user
+docker run -dit -v myapp:/var/www/html/ -p 91:80 web1 nginx /bin/bash
+docker start web1
+docker exec -it web1 /bin/bash
+docker ps 
+docker ps -a
+docker stats
+exit
+sudo chmod 777 -R /var/lib/docker 
+chmod 777 -R /volumes
+ls
+we can see the myapp file in the volume even if we delete container 
+docker stop web1
+sudo rm web1
+sudo rmi nginx
