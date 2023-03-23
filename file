@@ -1,0 +1,26 @@
+this is terraform file 
+provider "aws" {
+access_key = "ksdjfnkjnflnf654684646"
+secret_key = "5416161fgjhkjuytghtytj"
+}
+resource "aws_vpc" "cloud vpc"{
+cidr_block = "10.0.0.0/24"
+tags = {
+     Name = "cloud vpc"
+     }
+}
+resource "aws_subnet" "cloud subnet"{
+vpc_id = aws_vpc.cloud vpc.id
+cidr_block = "10.0.1.0/24"
+tags= {
+     Name = "cloud subnet"
+     }
+ }
+resource "aws_instance" "cloud instance"{
+ami = "ami-655546847684684"
+key_name= "us"
+instance_type = "t2.micro"
+tags={ 
+   Name = "cloud instance"
+   }
+}
