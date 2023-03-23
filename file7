@@ -1,0 +1,32 @@
+ansible 
+sudo yum update -y
+sudo amazon-extras-linux install ansible2 -y
+ansible --version
+sudo useradd ansadmin
+sudo passwd ansadmin
+sudo visudo 
+sudo vi /etc/ssh/sshd_config
+sudo systemctl restart sshd
+sudo su ansadmin
+key_gen
+
+
+cd /home/ansadmin/.ssh
+
+in slave node 
+
+sudo useradd ansadmin
+sudo passwd ansadmin
+sudo visudo 
+sudo vi /etc/ssh/sshd_config
+sudo systemctl restart sshd
+ 
+ go to master node
+
+ssh-copy-id -i ~/ssh/id_rsa.pub ansadmin@private ip
+ say yes
+ give password
+ssh ansadmin@privatyeadmin
+
+
+
