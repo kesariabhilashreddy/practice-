@@ -1,0 +1,17 @@
+tbhis is a docker file 
+FROM ubuntu
+WORKDIR /var/lib/docker
+MAINTAINER krishnabhiram
+RUN apt-get update -y && apt install httpd -y && apt service ubuntu start
+COPY  tes.tar
+ADD test.extract
+ 
+
+
+
+
+esc :wq
+docker build -it file3 .
+docker run -it -v myfile:/var/www/html/ -p 92:80 web2 ubuntu /bin/bash
+docker exec -t web2 /bin/bash
+
